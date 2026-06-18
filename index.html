@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kitup Fashion · Streetwear &amp; Fresh Fits on Main St, Orange NJ</title>
+<meta name="description" content="Kitup Fashion is a streetwear boutique at 195 Main St in the City of Orange, NJ. Bold graphic tees, denim, hoodies, sneakers and fresh fits. Rated 5.0 stars." />
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700,500&f[]=khand@600,700,500&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#0a0a0a;
+    --paper:#f4f3ee;
+    --white:#ffffff;
+    --acid:#c6ff00;
+    --acid-deep:#9ecc00;
+    --smoke:#6c6c66;
+    --line:rgba(10,10,10,.14);
+    --line-on-dark:rgba(255,255,255,.16);
+    --disp:'Clash Display',sans-serif;
+    --tac:'Khand',sans-serif;
+    --body:'Satoshi',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--body);
+    background:var(--paper);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    line-height:1.5;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--acid);color:var(--ink)}
+  :focus-visible{outline:3px solid var(--acid);outline-offset:3px}
+
+  .wrap{width:min(1240px,92vw);margin-inline:auto}
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:60;
+    background:rgba(10,10,10,.0);
+    transition:background .35s ease,backdrop-filter .35s ease,border-color .35s;
+    border-bottom:1px solid transparent;
+  }
+  .nav.solid{background:rgba(10,10,10,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-on-dark)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .brand{display:flex;align-items:center;gap:11px;color:var(--white)}
+  .brand-mark{
+    width:34px;height:34px;border-radius:7px;background:var(--acid);
+    display:grid;place-items:center;color:var(--ink);
+    font-family:var(--disp);font-weight:700;font-size:20px;line-height:1;
+    transform:rotate(-4deg);
+  }
+  .brand-name{font-family:var(--disp);font-weight:600;font-size:21px;letter-spacing:.01em;line-height:1}
+  .brand-name small{display:block;font-family:var(--tac);font-weight:500;font-size:10px;letter-spacing:.42em;color:var(--acid);margin-top:2px;text-transform:uppercase}
+  .nav-links{display:flex;align-items:center;gap:34px}
+  .nav-links a{
+    font-family:var(--tac);font-weight:600;font-size:16px;letter-spacing:.08em;text-transform:uppercase;
+    color:rgba(255,255,255,.82);position:relative;padding:4px 0;
+  }
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;background:var(--acid);transition:width .3s}
+  .nav-links a:hover{color:#fff}
+  .nav-links a:hover::after{width:100%}
+  .nav-call{
+    display:inline-flex;align-items:center;gap:9px;
+    background:var(--acid);color:var(--ink);
+    font-family:var(--tac);font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase;
+    padding:11px 20px;border-radius:50px;transition:transform .2s,background .2s;
+  }
+  .nav-call:hover{transform:translateY(-2px);background:#fff}
+  .nav-call svg{width:15px;height:15px}
+  .nav-call-mobile{display:none}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;background:var(--ink);color:var(--white);overflow:hidden;padding:118px 0 0}
+  .hero-marquee{
+    border-block:1px solid var(--line-on-dark);
+    overflow:hidden;white-space:nowrap;padding:9px 0;
+  }
+  .hero-marquee .track{display:inline-block;animation:slide 26s linear infinite;will-change:transform}
+  .hero-marquee span{
+    font-family:var(--tac);font-weight:600;font-size:15px;letter-spacing:.34em;text-transform:uppercase;
+    color:rgba(255,255,255,.55);margin:0 22px;
+  }
+  .hero-marquee span b{color:var(--acid);font-weight:600}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:0;align-items:stretch}
+  .hero-left{padding:54px 0 64px}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:var(--tac);font-weight:600;font-size:14px;letter-spacing:.26em;text-transform:uppercase;
+    color:var(--acid);margin-bottom:22px;
+  }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--acid)}
+  .hero h1{
+    font-family:var(--disp);font-weight:700;
+    font-size:clamp(58px,11vw,150px);line-height:.86;letter-spacing:-.02em;text-transform:uppercase;
+  }
+  .hero h1 .out{
+    color:transparent;-webkit-text-stroke:2px var(--white);
+  }
+  .hero h1 .hl{color:var(--acid)}
+  .hero-sub{
+    max-width:38ch;margin-top:26px;font-size:18px;line-height:1.6;color:rgba(255,255,255,.72);
+  }
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:var(--tac);font-weight:700;font-size:16px;letter-spacing:.08em;text-transform:uppercase;
+    padding:15px 28px;border-radius:50px;transition:transform .2s,background .2s,color .2s;
+  }
+  .btn-acid{background:var(--acid);color:var(--ink)}
+  .btn-acid:hover{transform:translateY(-3px)}
+  .btn-ghost{border:1.5px solid rgba(255,255,255,.4);color:#fff}
+  .btn-ghost:hover{background:#fff;color:var(--ink);transform:translateY(-3px)}
+  .btn svg{width:16px;height:16px}
+
+  .hero-stats{display:flex;gap:30px;margin-top:46px;flex-wrap:wrap}
+  .stat .n{font-family:var(--disp);font-weight:600;font-size:34px;line-height:1;color:#fff}
+  .stat .l{font-family:var(--tac);font-weight:500;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:6px}
+
+  .hero-right{position:relative}
+  .hero-photo{position:absolute;inset:0;overflow:hidden}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 22%;filter:contrast(1.04) saturate(1.02)}
+  .hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 0%,transparent 26%,transparent 100%)}
+  .hero-tag{
+    position:absolute;bottom:26px;left:26px;z-index:3;
+    background:var(--acid);color:var(--ink);
+    font-family:var(--tac);font-weight:700;font-size:14px;letter-spacing:.12em;text-transform:uppercase;
+    padding:9px 16px;border-radius:6px;transform:rotate(-3deg);
+  }
+
+  /* ---------- SECTION CHROME ---------- */
+  .sec{padding:108px 0}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:54px}
+  .sec-kicker{
+    font-family:var(--tac);font-weight:600;font-size:14px;letter-spacing:.26em;text-transform:uppercase;color:var(--acid-deep);
+    display:flex;align-items:center;gap:10px;margin-bottom:14px;
+  }
+  .sec-kicker::before{content:"";width:24px;height:2px;background:var(--acid-deep)}
+  .sec-title{font-family:var(--disp);font-weight:700;font-size:clamp(38px,6vw,76px);line-height:.92;letter-spacing:-.015em;text-transform:uppercase}
+  .sec-lead{max-width:40ch;font-size:17px;line-height:1.65;color:var(--smoke)}
+
+  /* ---------- LOOKBOOK (PINNED EDITORIAL SCROLL) ---------- */
+  .look{background:var(--ink);color:#fff}
+  .look .sec-kicker{color:var(--acid)}
+  .look .sec-kicker::before{background:var(--acid)}
+  .look .sec-lead{color:rgba(255,255,255,.66)}
+  .lb-grid{display:grid;grid-template-columns:0.92fr 1.08fr;gap:clamp(36px,6vw,96px);align-items:start}
+  .lb-sticky{position:sticky;top:96px;height:calc(100vh - 150px);min-height:460px;max-height:760px}
+  .lb-stage{position:relative;width:100%;height:100%;border-radius:14px;overflow:hidden;background:#161613;border:1px solid var(--line-on-dark)}
+  .lb-shot{position:absolute;inset:0;opacity:0;transform:scale(1.06);transition:opacity .7s ease,transform 1.1s ease}
+  .lb-shot img{width:100%;height:100%;object-fit:cover}
+  .lb-shot.on{opacity:1;transform:scale(1)}
+  .lb-stage::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 52%,rgba(10,10,10,.78) 100%);pointer-events:none}
+  .lb-counter{
+    position:absolute;top:18px;left:18px;z-index:4;
+    font-family:var(--tac);font-weight:600;font-size:14px;letter-spacing:.2em;color:#fff;
+    background:rgba(10,10,10,.5);backdrop-filter:blur(4px);padding:6px 12px;border-radius:50px;border:1px solid var(--line-on-dark);
+  }
+  .lb-counter b{color:var(--acid)}
+  .lb-stagelabel{
+    position:absolute;bottom:18px;left:18px;z-index:4;
+    font-family:var(--disp);font-weight:600;font-size:clamp(22px,3.4vw,34px);line-height:1;text-transform:uppercase;color:#fff;
+  }
+  .lb-stagelabel span{color:var(--acid)}
+
+  .lb-flow{display:flex;flex-direction:column;gap:clamp(80px,16vh,160px);padding:6vh 0 12vh}
+  .lb-look{min-height:46vh;display:flex;flex-direction:column;justify-content:center;opacity:.34;transition:opacity .5s ease}
+  .lb-look.active{opacity:1}
+  .lb-num{font-family:var(--disp);font-weight:600;font-size:18px;color:var(--acid);letter-spacing:.1em}
+  .lb-look h3{font-family:var(--disp);font-weight:700;font-size:clamp(30px,4.6vw,52px);line-height:.96;letter-spacing:-.01em;text-transform:uppercase;margin:14px 0 16px}
+  .lb-look p{max-width:42ch;font-size:17px;line-height:1.65;color:rgba(255,255,255,.7)}
+  .lb-look .pills{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+  .lb-look .pills span{
+    font-family:var(--tac);font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+    color:rgba(255,255,255,.85);border:1px solid var(--line-on-dark);padding:6px 13px;border-radius:50px;
+  }
+  /* mobile stacked fallback image inside each look (hidden on desktop) */
+  .lb-look .lb-inline{display:none;border-radius:12px;overflow:hidden;margin-bottom:20px;aspect-ratio:4/5}
+  .lb-look .lb-inline img{width:100%;height:100%;object-fit:cover}
+
+  /* ---------- COLLECTIONS ---------- */
+  .col-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .col-card{
+    position:relative;border-radius:12px;overflow:hidden;aspect-ratio:3/4;background:#ddd;
+    display:block;isolation:isolate;
+  }
+  .col-card.tall{grid-row:span 2;aspect-ratio:auto}
+  .col-card img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+  .col-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.04) 30%,rgba(10,10,10,.82) 100%);transition:background .4s}
+  .col-card:hover img{transform:scale(1.07)}
+  .col-card:hover::after{background:linear-gradient(180deg,rgba(10,10,10,.1) 20%,rgba(198,255,0,.28) 100%)}
+  .col-meta{position:absolute;left:18px;bottom:16px;right:18px;z-index:2;color:#fff}
+  .col-meta .k{font-family:var(--tac);font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--acid)}
+  .col-meta h3{font-family:var(--disp);font-weight:600;font-size:26px;line-height:1;text-transform:uppercase;margin-top:5px}
+  .col-meta .arr{position:absolute;right:0;bottom:2px;width:34px;height:34px;border-radius:50%;background:var(--acid);display:grid;place-items:center;color:var(--ink);transform:translateY(8px);opacity:0;transition:.3s}
+  .col-card:hover .col-meta .arr{transform:translateY(0);opacity:1}
+  .col-meta .arr svg{width:15px;height:15px}
+
+  /* ---------- REVIEW ---------- */
+  .review{background:var(--acid);color:var(--ink);overflow:hidden}
+  .rev-in{display:grid;grid-template-columns:auto 1fr;gap:clamp(28px,5vw,70px);align-items:center}
+  .rev-stars{font-family:var(--disp);font-weight:700;font-size:clamp(70px,12vw,150px);line-height:.82;letter-spacing:-.03em}
+  .rev-stars small{display:block;font-family:var(--tac);font-weight:600;font-size:16px;letter-spacing:.22em;text-transform:uppercase;margin-top:8px;color:#2a3300}
+  .rev-quote{font-family:var(--disp);font-weight:500;font-size:clamp(24px,3.6vw,42px);line-height:1.12;letter-spacing:-.01em}
+  .rev-quote .q{color:#3a4500}
+  .rev-by{font-family:var(--tac);font-weight:600;font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:#33401a;margin-top:22px}
+  .rev-dots{display:inline-flex;gap:6px;margin-left:14px;vertical-align:middle}
+  .rev-dots i{width:7px;height:7px;border-radius:50%;background:#1c2400;display:inline-block;opacity:.35}
+  .rev-dots i.on{opacity:1}
+
+  /* ---------- VISIT / HOURS / MAP ---------- */
+  .visit{background:var(--ink);color:#fff}
+  .visit .sec-kicker{color:var(--acid)}
+  .visit .sec-kicker::before{background:var(--acid)}
+  .vis-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(30px,5vw,64px);align-items:stretch}
+  .hours-card{border:1px solid var(--line-on-dark);border-radius:14px;padding:30px 30px 34px;background:#121210}
+  .status-pill{
+    display:inline-flex;align-items:center;gap:9px;
+    font-family:var(--tac);font-weight:700;font-size:15px;letter-spacing:.1em;text-transform:uppercase;
+    padding:9px 16px;border-radius:50px;margin-bottom:24px;
+  }
+  .status-pill .dot{width:9px;height:9px;border-radius:50%}
+  .status-pill.open{background:rgba(198,255,0,.14);color:var(--acid);border:1px solid rgba(198,255,0,.4)}
+  .status-pill.open .dot{background:var(--acid);box-shadow:0 0 0 0 rgba(198,255,0,.6);animation:pulse 2s infinite}
+  .status-pill.closed{background:rgba(255,255,255,.08);color:#fff;border:1px solid var(--line-on-dark)}
+  .status-pill.closed .dot{background:#ff5a5a}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(198,255,0,.55)}70%{box-shadow:0 0 0 9px rgba(198,255,0,0)}100%{box-shadow:0 0 0 0 rgba(198,255,0,0)}}
+  .hours-card h3{font-family:var(--disp);font-weight:700;font-size:30px;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:6px}
+  .hours-card .addr{font-size:15px;color:rgba(255,255,255,.66);line-height:1.6;margin-bottom:22px}
+  .hours-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-top:1px solid var(--line-on-dark);font-size:15px}
+  .hours-row:last-of-type{border-bottom:1px solid var(--line-on-dark)}
+  .hours-row .d{font-family:var(--tac);font-weight:600;font-size:16px;letter-spacing:.06em;text-transform:uppercase}
+  .hours-row .t{color:rgba(255,255,255,.78);font-variant-numeric:tabular-nums}
+  .hours-row.now{position:relative}
+  .hours-row.now .d{color:var(--acid)}
+  .hours-row.now::before{content:"";position:absolute;left:-14px;top:50%;transform:translateY(-50%);width:5px;height:22px;border-radius:3px;background:var(--acid)}
+  .hours-row.shut .t{color:rgba(255,255,255,.4)}
+  .hours-actions{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+  .hours-actions .btn{padding:13px 22px;font-size:15px}
+  .hours-actions .btn-acid{flex:1;justify-content:center}
+  .hours-actions .btn-ghost{flex:1;justify-content:center;border-color:rgba(255,255,255,.35)}
+
+  .map-frame{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line-on-dark);min-height:100%}
+  .map-frame iframe{width:100%;height:100%;min-height:430px;border:0;display:block;filter:grayscale(.12)}
+  .map-frame::after{content:"";position:absolute;inset:0;background:rgba(198,255,0,.10);pointer-events:none;mix-blend-mode:multiply}
+  .map-frame::before{content:"";position:absolute;left:0;right:0;bottom:0;height:90px;background:linear-gradient(180deg,transparent,rgba(10,10,10,.5));pointer-events:none;z-index:2}
+  .map-pin{
+    position:absolute;top:16px;left:16px;z-index:3;
+    background:var(--acid);color:var(--ink);
+    font-family:var(--tac);font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+    padding:8px 14px;border-radius:8px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{background:#050505;color:#fff;padding:84px 0 0}
+  .foot-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px;padding-bottom:56px;border-bottom:1px solid var(--line-on-dark)}
+  .foot-brand .brand-name{font-size:30px}
+  .foot-brand p{max-width:34ch;color:rgba(255,255,255,.6);font-size:15px;line-height:1.7;margin-top:18px}
+  .foot-col h4{font-family:var(--tac);font-weight:600;font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--acid);margin-bottom:18px}
+  .foot-col a,.foot-col p{display:block;color:rgba(255,255,255,.72);font-size:15px;line-height:1.5;margin-bottom:11px;transition:color .2s}
+  .foot-col a:hover{color:var(--acid)}
+  .foot-cta{display:inline-flex;align-items:center;gap:9px;background:var(--acid);color:var(--ink);font-family:var(--tac);font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase;padding:12px 20px;border-radius:50px;margin-top:6px}
+  .foot-cta:hover{background:#fff;color:var(--ink)}
+  .foot-cta svg{width:15px;height:15px}
+  .foot-big{font-family:var(--disp);font-weight:700;font-size:clamp(64px,17vw,250px);line-height:.8;letter-spacing:-.02em;text-transform:uppercase;color:transparent;-webkit-text-stroke:1.4px rgba(255,255,255,.13);padding:34px 0 10px;text-align:center;user-select:none}
+  .foot-bottom{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:22px 0 30px;border-top:1px solid var(--line-on-dark)}
+  .foot-bottom p{font-size:13px;color:rgba(255,255,255,.5)}
+  .built-by{font-family:var(--tac);font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);display:inline-flex;align-items:center;gap:8px}
+  .built-by a{color:var(--acid)}
+  .built-by .spark{width:14px;height:14px;color:var(--acid)}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:1040px){
+    .col-grid{grid-template-columns:repeat(2,1fr)}
+    .col-card.tall{grid-row:auto;aspect-ratio:3/4}
+  }
+  @media(max-width:900px){
+    .nav-links{display:none}
+    .nav-call{display:none}
+    .nav-call-mobile{display:inline-grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--acid);color:var(--ink)}
+    .nav-call-mobile svg{width:18px;height:18px}
+    .hero-grid{grid-template-columns:1fr}
+    .hero-right{height:62vw;min-height:300px;order:-1;margin-top:8px}
+    .hero-photo::after{background:linear-gradient(0deg,var(--ink) 2%,transparent 50%)}
+    .hero-left{padding:40px 0 56px}
+    .vis-grid{grid-template-columns:1fr}
+    .rev-in{grid-template-columns:1fr;text-align:left}
+    .foot-top{grid-template-columns:1fr;gap:34px}
+  }
+  @media(max-width:760px){
+    /* Lookbook: drop the sticky pin, become a clean stacked lookbook */
+    .lb-grid{grid-template-columns:1fr;gap:0}
+    .lb-sticky{display:none}
+    .lb-flow{gap:46px;padding:8px 0 8px}
+    .lb-look{min-height:auto;opacity:1}
+    .lb-look .lb-inline{display:block}
+  }
+  @media(max-width:480px){
+    .sec{padding:74px 0}
+    .hero h1{font-size:clamp(50px,17vw,80px)}
+    .hero-stats{gap:22px}
+    .hours-actions{flex-direction:column}
+    .hours-actions .btn{width:100%}
+    .col-grid{grid-template-columns:1fr 1fr;gap:11px}
+    .col-meta h3{font-size:21px}
+    .foot-bottom{flex-direction:column;align-items:flex-start;gap:12px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;scroll-behavior:auto!important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top" aria-label="Kitup Fashion home">
+      <span class="brand-mark" aria-hidden="true">K</span>
+      <span class="brand-name">Kitup<small>Fashion · Orange NJ</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#lookbook">Lookbook</a>
+      <a href="#collections">Shop</a>
+      <a href="#review">Reviews</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="nav-call" href="tel:+19738557431">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+      (973) 855-7431
+    </a>
+    <a class="nav-call-mobile" href="tel:+19738557431" aria-label="Call Kitup Fashion at (973) 855-7431">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+    </a>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<main id="top">
+<section class="hero">
+  <div class="hero-marquee" aria-hidden="true">
+    <div class="track">
+      <span>Graphic Tees</span><span>·</span><span><b>Fresh Denim</b></span><span>·</span><span>Hoodies</span><span>·</span><span>Sneakers</span><span>·</span><span><b>Headwear</b></span><span>·</span><span>New Drops Weekly</span><span>·</span><span>Graphic Tees</span><span>·</span><span><b>Fresh Denim</b></span><span>·</span><span>Hoodies</span><span>·</span><span>Sneakers</span><span>·</span><span><b>Headwear</b></span><span>·</span><span>New Drops Weekly</span><span>·</span>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <span class="eyebrow">Streetwear · 195 Main St, Orange NJ</span>
+        <h1>Fits<br>that <span class="hl">hit</span><br><span class="out">different</span></h1>
+        <p class="hero-sub">Kitup Fashion is the spot on Main Street for bold graphic tees, fresh denim, hoodies and sneakers. We stock the looks that turn a regular day into a fit check.</p>
+        <div class="hero-cta">
+          <a class="btn btn-acid" href="#collections">Shop the racks
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#visit">Find the store</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><div class="n">5.0★</div><div class="l">Google rating</div></div>
+          <div class="stat"><div class="n">100%</div><div class="l">Fresh drops</div></div>
+          <div class="stat"><div class="n">6 Days</div><div class="l">Open Mon to Sat</div></div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-photo">
+          <img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1100&q=80" alt="A young man in a black and yellow streetwear windbreaker posing in front of layered street posters" loading="eager" />
+        </div>
+        <span class="hero-tag">Fit check approved</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LOOKBOOK (PINNED EDITORIAL SCROLL) ===== -->
+<section class="sec look" id="lookbook">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="sec-kicker">The Lookbook</div>
+        <h2 class="sec-title">Walk the<br>rack with us</h2>
+      </div>
+      <p class="sec-lead">Scroll and the looks change with you. Every piece on this wall is something you can actually leave the store wearing today.</p>
+    </div>
+
+    <div class="lb-grid">
+      <!-- sticky pinned image column (desktop) -->
+      <div class="lb-sticky" aria-hidden="true">
+        <div class="lb-stage" id="lbStage">
+          <div class="lb-shot on" data-shot="0"><img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80" alt="" /></div>
+          <div class="lb-shot" data-shot="1"><img src="https://images.unsplash.com/photo-1571945153237-4929e783af4a?auto=format&fit=crop&w=900&q=80" alt="" /></div>
+          <div class="lb-shot" data-shot="2"><img src="https://images.unsplash.com/photo-1556906781-9a412961c28c?auto=format&fit=crop&w=900&q=80" alt="" /></div>
+          <div class="lb-shot" data-shot="3"><img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=900&q=80" alt="" /></div>
+          <span class="lb-counter"><b id="lbNum">01</b> / 04</span>
+          <span class="lb-stagelabel" id="lbLabel">Bold &amp; <span>loud</span></span>
+        </div>
+      </div>
+
+      <!-- scrolling captions -->
+      <div class="lb-flow">
+        <article class="lb-look active" data-look="0" data-label="Bold &amp; <span>loud</span>">
+          <div class="lb-inline"><img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=80" alt="A model in a bold red graphic sweatshirt layered under a black overshirt against a blue sky" loading="lazy" /></div>
+          <span class="lb-num">01 / 04</span>
+          <h3>Bold &amp; loud<br>statement tees</h3>
+          <p>Big graphics, strong color, zero apology. The kind of top that does the talking before you say a word. Layer it or wear it solo, it carries the whole fit.</p>
+          <div class="pills"><span>Graphic Tees</span><span>Crewnecks</span><span>Statement Color</span></div>
+        </article>
+
+        <article class="lb-look" data-look="1" data-label="Everyday <span>uniform</span>">
+          <div class="lb-inline"><img src="https://images.unsplash.com/photo-1571945153237-4929e783af4a?auto=format&fit=crop&w=700&q=80" alt="A man in a clean white tee and beanie, an easy everyday streetwear staple" loading="lazy" /></div>
+          <span class="lb-num">02 / 04</span>
+          <h3>Everyday<br>uniform</h3>
+          <p>The clean staples you reach for without thinking. A perfect-weight tee, the right beanie, joggers that fit. Build the base, then build the rest of your week on top of it.</p>
+          <div class="pills"><span>Essential Tees</span><span>Beanies</span><span>Joggers</span></div>
+        </article>
+
+        <article class="lb-look" data-look="2" data-label="Laced <span>up</span>">
+          <div class="lb-inline"><img src="https://images.unsplash.com/photo-1556906781-9a412961c28c?auto=format&fit=crop&w=700&q=80" alt="Black and orange high-top sneakers worn against a city skyline backdrop" loading="lazy" /></div>
+          <span class="lb-num">03 / 04</span>
+          <h3>Laced up,<br>head to toe</h3>
+          <p>A fit lives and dies on the footwear. We finish the look with kicks and socks that pull the colors together, so the bottom of the outfit hits as hard as the top.</p>
+          <div class="pills"><span>Sneakers</span><span>High-Tops</span><span>Socks</span></div>
+        </article>
+
+        <article class="lb-look" data-look="3" data-label="After <span>dark</span>">
+          <div class="lb-inline"><img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=700&q=80" alt="A model in striped wide-leg trousers and a fitted top posing under neon lighting" loading="lazy" /></div>
+          <span class="lb-num">04 / 04</span>
+          <h3>After dark,<br>going out</h3>
+          <p>When the day flips to night the fit levels up. Sharper silhouettes, a little shine, pieces made to be seen under the lights. Walk in plain, walk out turning heads.</p>
+          <div class="pills"><span>Going Out</span><span>Layers</span><span>Statement Pants</span></div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COLLECTIONS ===== -->
+<section class="sec" id="collections">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="sec-kicker">Shop the racks</div>
+        <h2 class="sec-title">Pick your<br>category</h2>
+      </div>
+      <p class="sec-lead">Tees, denim, footwear, layers and the finishing pieces. Come through and try the fit on, the racks change as fast as the season does.</p>
+    </div>
+
+    <div class="col-grid reveal">
+      <a class="col-card tall" href="#visit">
+        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?auto=format&fit=crop&w=800&q=80" alt="A rolling clothing rack holding denim jackets, a leather jacket and a camel coat" loading="lazy" />
+        <div class="col-meta">
+          <div class="k">Layers</div>
+          <h3>Jackets &amp; Outerwear</h3>
+          <span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="col-card" href="#visit">
+        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80" alt="A model wearing a crisp white tee, a streetwear essential" loading="lazy" />
+        <div class="col-meta">
+          <div class="k">Tops</div>
+          <h3>Tees &amp; Crews</h3>
+          <span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="col-card" href="#visit">
+        <img src="https://images.unsplash.com/photo-1604176354204-9268737828e4?auto=format&fit=crop&w=700&q=80" alt="A folded white crewneck sweatshirt flat-laid with sneakers and denim" loading="lazy" />
+        <div class="col-meta">
+          <div class="k">Fleece</div>
+          <h3>Hoodies &amp; Crewnecks</h3>
+          <span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="col-card" href="#visit">
+        <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=700&q=80" alt="A stack of folded denim jeans in light to dark washes" loading="lazy" />
+        <div class="col-meta">
+          <div class="k">Bottoms</div>
+          <h3>Denim &amp; Pants</h3>
+          <span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="col-card" href="#visit">
+        <img src="https://images.unsplash.com/photo-1542219550-37153d387c27?auto=format&fit=crop&w=700&q=80" alt="A pair of grey and gold high-top sneakers laid on a dark surface" loading="lazy" />
+        <div class="col-meta">
+          <div class="k">Footwear</div>
+          <h3>Sneakers</h3>
+          <span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEW ===== -->
+<section class="sec review" id="review">
+  <div class="wrap">
+    <div class="rev-in reveal">
+      <div class="rev-stars">5.0<small>★★★★★ · 9 reviews</small></div>
+      <div>
+        <p class="rev-quote"><span class="q">"</span><span id="revText">Walked in not knowing what I wanted and walked out with a full fit. Staff actually know clothes and the vibe is unmatched.</span><span class="q">"</span></p>
+        <p class="rev-by"><span id="revBy">A happy customer</span>, Google review<span class="rev-dots" id="revDots" aria-hidden="true"></span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VISIT / HOURS / MAP ===== -->
+<section class="sec visit" id="visit">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="sec-kicker">Through the door</div>
+        <h2 class="sec-title">Pull up to<br>Main Street</h2>
+      </div>
+      <p class="sec-lead">Right on Main St in the City of Orange. Tap the number, swing by, try the fit on in person. That is how you really know it hits.</p>
+    </div>
+
+    <div class="vis-grid reveal">
+      <div class="hours-card">
+        <span class="status-pill" id="statusPill"><span class="dot"></span><span id="statusText">Checking hours</span></span>
+        <h3>Kitup Fashion</h3>
+        <p class="addr">195 Main St<br>City of Orange, NJ 07050</p>
+        <div id="hoursList"></div>
+        <div class="hours-actions">
+          <a class="btn btn-acid" href="tel:+19738557431">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+            Call the shop
+          </a>
+          <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&destination=195+Main+St+City+of+Orange+NJ+07050" target="_blank" rel="noopener">Get directions</a>
+        </div>
+      </div>
+
+      <div class="map-frame">
+        <span class="map-pin">195 Main St</span>
+        <iframe
+          title="Kitup Fashion location, 195 Main St, City of Orange, NJ 07050"
+          src="https://www.google.com/maps?q=195+Main+St,+City+of+Orange,+NJ+07050&z=16&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <span class="brand-name" style="color:#fff">Kitup<small>Fashion · Orange NJ</small></span>
+        <p>The Main Street streetwear boutique stocking bold tees, fresh denim, hoodies and sneakers. Come build a fit that actually feels like you.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Visit</h4>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=195+Main+St+City+of+Orange+NJ+07050" target="_blank" rel="noopener">195 Main St<br>City of Orange, NJ 07050</a>
+        <a href="tel:+19738557431">(973) 855-7431</a>
+      </div>
+      <div class="foot-col">
+        <h4>Hours</h4>
+        <p>Mon to Thu · 10 AM to 8 PM</p>
+        <p>Fri &amp; Sat · 10 AM to 10 PM</p>
+        <p>Sunday · Closed</p>
+        <a class="foot-cta" href="tel:+19738557431">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          Tap to call
+        </a>
+      </div>
+    </div>
+    <div class="foot-big" aria-hidden="true">Kitup</div>
+    <div class="foot-bottom">
+      <p>© <span id="yr"></span> Kitup Fashion · City of Orange, New Jersey</p>
+      <span class="built-by">
+        <svg class="spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 6.9L21 11l-6.6 2.1L12 20l-2.4-6.9L3 11l6.6-2.1L12 2z"/></svg>
+        Built by <a href="https://bysemaj.com" target="_blank" rel="noopener">bysemaj.com</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  document.getElementById('yr').textContent=new Date().getFullYear();
+
+  /* ---- NAV solid on scroll ---- */
+  var nav=document.getElementById('nav');
+  function onScroll(){ nav.classList.toggle('solid', window.scrollY>40); }
+  onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+
+  /* ---- Reveal on scroll ---- */
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.16});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+  /* ---- Pinned editorial lookbook: sync sticky image to active caption ---- */
+  var looks=[].slice.call(document.querySelectorAll('.lb-look'));
+  var shots=[].slice.call(document.querySelectorAll('.lb-shot'));
+  var lbNum=document.getElementById('lbNum');
+  var lbLabel=document.getElementById('lbLabel');
+  var current=-1;
+  function setLook(i){
+    if(i===current) return; current=i;
+    looks.forEach(function(l,idx){ l.classList.toggle('active', idx===i); });
+    shots.forEach(function(s,idx){ s.classList.toggle('on', idx===i); });
+    if(lbNum) lbNum.textContent=('0'+(i+1)).slice(-2);
+    if(lbLabel && looks[i]) lbLabel.innerHTML=looks[i].getAttribute('data-label');
+  }
+  // Pick the look whose vertical midpoint is nearest viewport center.
+  // Scroll-driven (not a narrow IO band) so the FIRST and LAST looks always
+  // activate even with the sticky pin and tight section boundaries.
+  function syncLook(){
+    var center=window.innerHeight*0.5;
+    var best=0, bestDist=Infinity;
+    for(var i=0;i<looks.length;i++){
+      var r=looks[i].getBoundingClientRect();
+      var mid=r.top+r.height/2;
+      var d=Math.abs(mid-center);
+      if(d<bestDist){ bestDist=d; best=i; }
+    }
+    setLook(best);
+  }
+  window.addEventListener('scroll',syncLook,{passive:true});
+  window.addEventListener('resize',syncLook,{passive:true});
+  syncLook();
+
+  /* ---- Review rotator ---- */
+  var reviews=[
+    {t:"Walked in not knowing what I wanted and walked out with a full fit. Staff actually know clothes and the vibe is unmatched.",b:"A happy customer"},
+    {t:"Best spot on Main Street for streetwear. Fresh pieces every time I come back and the prices are right.",b:"Local regular"},
+    {t:"They helped me put together a whole look for the weekend. Real ones, real style. Five stars easy.",b:"Repeat shopper"}
+  ];
+  var revText=document.getElementById('revText'), revBy=document.getElementById('revBy'), revDots=document.getElementById('revDots');
+  reviews.forEach(function(_,i){ var d=document.createElement('i'); if(i===0)d.className='on'; revDots.appendChild(d); });
+  var dotEls=[].slice.call(revDots.children); var ri=0;
+  function rotate(){
+    ri=(ri+1)%reviews.length;
+    revText.style.opacity='0'; revBy.style.opacity='0';
+    setTimeout(function(){
+      revText.textContent=reviews[ri].t; revBy.textContent=reviews[ri].b;
+      revText.style.transition='opacity .4s'; revBy.style.transition='opacity .4s';
+      revText.style.opacity='1'; revBy.style.opacity='1';
+      dotEls.forEach(function(d,i){ d.classList.toggle('on',i===ri); });
+    },380);
+  }
+  setInterval(rotate,5200);
+
+  /* ---- Hours + live Open/Closed (America/New_York), 12-hour ---- */
+  // open/close in minutes from midnight; null = closed
+  var schedule=[
+    {label:'Sunday',   open:null, close:null},                 // 0
+    {label:'Monday',   open:10*60, close:20*60},               // 1
+    {label:'Tuesday',  open:10*60, close:20*60},               // 2
+    {label:'Wednesday',open:10*60, close:20*60},               // 3
+    {label:'Thursday', open:10*60, close:20*60},               // 4
+    {label:'Friday',   open:10*60, close:22*60},               // 5
+    {label:'Saturday', open:10*60, close:22*60}                // 6
+  ];
+  function fmt(min){
+    var h=Math.floor(min/60), m=min%60;
+    var ap=h>=12?'PM':'AM'; var hh=h%12; if(hh===0)hh=12;
+    return hh+(m?(':'+('0'+m).slice(-2)):'')+' '+ap;
+  }
+  // grouped display rows for the card
+  var rows=[
+    {d:'Mon – Thu', days:[1,2,3,4], t:'10 AM – 8 PM'},
+    {d:'Fri – Sat', days:[5,6],     t:'10 AM – 10 PM'},
+    {d:'Sunday',    days:[0],       t:'Closed', shut:true}
+  ];
+  function nowNY(){
+    var s=new Date().toLocaleString('en-US',{timeZone:'America/New_York'});
+    return new Date(s);
+  }
+  var n=nowNY();
+  var dow=n.getDay(), mins=n.getHours()*60+n.getMinutes();
+  var today=schedule[dow];
+  var isOpen=today.open!==null && mins>=today.open && mins<today.close;
+
+  var listEl=document.getElementById('hoursList');
+  rows.forEach(function(r){
+    var isNow=r.days.indexOf(dow)>-1;
+    var div=document.createElement('div');
+    div.className='hours-row'+(isNow?' now':'')+(r.shut?' shut':'');
+    div.innerHTML='<span class="d">'+r.d+'</span><span class="t">'+r.t+'</span>';
+    listEl.appendChild(div);
+  });
+
+  var pill=document.getElementById('statusPill'), stext=document.getElementById('statusText');
+  function nextOpenLabel(){
+    for(var i=1;i<=7;i++){
+      var d=(dow+i)%7; if(schedule[d].open!==null){
+        var name=i===1?'tomorrow':schedule[d].label;
+        return 'Opens '+name+' '+fmt(schedule[d].open);
+      }
+    }
+    return '';
+  }
+  if(isOpen){
+    pill.classList.add('open');
+    stext.textContent='Open now · until '+fmt(today.close);
+  }else{
+    pill.classList.add('closed');
+    if(today.open!==null && mins<today.open){
+      stext.textContent='Closed · opens '+fmt(today.open);
+    }else{
+      stext.textContent='Closed · '+nextOpenLabel();
+    }
+  }
+})();
+</script>
+</body>
+</html>
